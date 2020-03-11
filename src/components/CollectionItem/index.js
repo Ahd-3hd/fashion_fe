@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 const ItemWrapper = styled.div`
   // set to absolute to handle swiping effect, but might break positioning.
-  position: absolute;
+  position: relative;
   border-radius: 0.5rem;
+  margin: 1rem;
+  /* left: ${props => props.id * 50 + "%"}; */
   > .item-media {
     position: relative;
     width: 160px;
@@ -48,7 +50,7 @@ const ItemWrapper = styled.div`
 `;
 const CollectionItem = props => {
   return (
-    <ItemWrapper image={props.designer}>
+    <ItemWrapper image={props.designer} id={props.id}>
       <div className="item-media">
         <button className="fav-button">
           <FontAwesomeIcon icon={faHeart} />

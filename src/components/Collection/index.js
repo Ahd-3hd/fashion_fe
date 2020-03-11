@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import CollectionItem from "../CollectionItem";
 const CollectionWrapper = styled.section`
@@ -23,19 +23,40 @@ const CollectionWrapper = styled.section`
   }
 
   .items-container {
-    padding: 0 0.5rem;
+    position: relative;
+    padding-left: 0.5rem;
+    overflow-x: hidden;
+    display: flex;
+    transition: 0.7s;
+    /** left property causes overflow aka horizontal scrolling; hiding the scrollbar works on safari and chrome but not firefox and not sure about edge */
+    /** TODO FIND AWAY TO CHANGE LEFT PROPERTY WITHOUT OVERFLOW */
   }
 `;
 const Collection = props => {
+  const [slide, setSlide] = useState(0);
+  const _handleLeftSwipe = () => {
+    if (slide < 0) {
+      setSlide(slide * 10);
+    } else {
+      setSlide(-slide * 10);
+    }
+  };
   return (
-    <CollectionWrapper>
+    <CollectionWrapper slide={slide}>
       <div className="top-bar">
         <p>DESIGNER'S COLLECTION</p>
         <a href="#deadsies">SHOW ALL</a>
       </div>
       <div className="items-container">
-        <CollectionItem designer={props.designer} />
+        <CollectionItem designer={props.designer} id={0} />
+        <CollectionItem designer={props.designer} id={1} />
+        <CollectionItem designer={props.designer} id={2} />
+        <CollectionItem designer={props.designer} id={3} />
+        <CollectionItem designer={props.designer} id={4} />
+        <CollectionItem designer={props.designer} id={5} />
       </div>
+      <button onClick={_handleLeftSwipe}>swipe left</button>
+      <button>swipe right</button>
     </CollectionWrapper>
   );
 };

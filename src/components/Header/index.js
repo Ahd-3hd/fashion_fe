@@ -76,6 +76,7 @@ const HeaderWrapper = styled.header`
           > .bottom-elegant {
             transform: rotateZ(180deg);
             background: -webkit-linear-gradient(#edc1a6, #edc1a600);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
           }

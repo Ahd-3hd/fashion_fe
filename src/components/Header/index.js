@@ -26,8 +26,10 @@ const HeaderWrapper = styled.header`
     height: ${props => (props.headerHeight ? "50vh" : "100vh")};
     > .left {
       display: block;
-      background: rgb(216, 168, 144, 0.9);
+      background: ${props =>
+        props.headerHeight ? "#fbfbfb" : "rgb(216, 168, 144, 0.9)"};
       position: relative;
+      transition: 0.5s;
       > svg {
         position: absolute;
       }

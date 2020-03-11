@@ -4,10 +4,28 @@ import Navbar from "../Navbar";
 import headerBackground from "../../img/abaya7.jpg";
 const HeaderWrapper = styled.header`
   position: relative;
-  background: url(${headerBackground}) no-repeat;
-  background-size: cover;
   height: ${props => props.headerHeight};
   transition: 0.7s ease-in-out;
+  height: ${props => (props.headerHeight ? "30vh" : "50vh")};
+  display: flex;
+  flex-basis: 1;
+  > .right {
+    background: url(${headerBackground}) no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    flex: 1;
+  }
+  > .left {
+    display: none;
+    flex: 1;
+  }
+  @media only screen and (min-width: 600px) {
+    height: ${props => (props.headerHeight ? "50vh" : "100vh")};
+    > .left {
+      display: block;
+    }
+  }
 `;
 const Header = () => {
   const [height, setHeight] = useState(false);
@@ -20,8 +38,10 @@ const Header = () => {
   }, []);
 
   return (
-    <HeaderWrapper headerHeight={height ? "30vh" : "50vh"}>
+    <HeaderWrapper headerHeight={height}>
       <Navbar />
+      <div className="left"></div>
+      <div className="right"></div>
     </HeaderWrapper>
   );
 };

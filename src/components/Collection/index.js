@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import CollectionItem from "../CollectionItem";
 const CollectionWrapper = styled.section`
   margin-top: 2.5rem;
   .top-bar {
@@ -21,13 +21,20 @@ const CollectionWrapper = styled.section`
       text-decoration: none;
     }
   }
+
+  .items-container {
+    padding: 0 0.5rem;
+  }
 `;
-const Collection = () => {
+const Collection = props => {
   return (
     <CollectionWrapper>
       <div className="top-bar">
         <p>DESIGNER'S COLLECTION</p>
         <a href="#deadsies">SHOW ALL</a>
+      </div>
+      <div className="items-container">
+        <CollectionItem designer={props.designer} />
       </div>
     </CollectionWrapper>
   );

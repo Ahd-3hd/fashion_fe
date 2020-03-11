@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Navbar from "../Navbar";
 import headerBackground from "../../img/abaya7.jpg";
-import splashImage from "../../img/splashing.svg";
 const HeaderWrapper = styled.header`
   position: relative;
   height: ${props => props.headerHeight};

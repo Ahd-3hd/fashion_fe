@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { useSpring, animated } from "react-spring";
 const NavbarWrapper = styled.nav`
   position: fixed;
   right: 0;
@@ -16,17 +17,17 @@ const NavbarWrapper = styled.nav`
   }
 `;
 
-const NavOverlay = styled.div`
+const NavOverlay = styled(animated.div)`
   position: fixed;
   top: 0;
-  left: ${props => (props.revealed ? "0" : "-100%")};
+  left:0;
+  /* left: ${props => (props.revealed ? "0" : "-100%")}; */
   width: 100%;
   height: 100vh;
   background: #8e5368;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.4s ease-in;
   > ul {
     list-style-type: none;
     margin: 0;
@@ -50,6 +51,10 @@ const NavOverlay = styled.div`
 
 const Navbar = () => {
   const [overlay, setOverlay] = useState(false);
+
+  const slideOverlay = useSpring({
+    transform: overlay ? "translateX(0)" : "translateX(-100%)"
+  });
   return (
     <NavbarWrapper>
       <FontAwesomeIcon
@@ -57,7 +62,7 @@ const Navbar = () => {
         className="burger-menu"
         onClick={() => setOverlay(!overlay)}
       />
-      <NavOverlay revealed={overlay}>
+      <NavOverlay style={slideOverlay}>
         <ul>
           <li>
             <a href="#deadsies">HOME</a>

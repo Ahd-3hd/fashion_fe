@@ -68,7 +68,7 @@ const Collection = props => {
   return (
     <CollectionWrapper>
       <div className="top-bar">
-        <p>DESIGNER'S COLLECTION</p>
+        <p>{props.title}</p>
         <a href="#deadsies">SHOW ALL</a>
       </div>
       {/* <div className="items-container"></div> */}

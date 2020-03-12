@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
+
 const ItemWrapper = styled.div`
-  // set to absolute to handle swiping effect, but might break positioning.
   position: relative;
   border-radius: 0.5rem;
   margin: 1rem;
   /* left: ${props => props.id * 50 + "%"}; */
-  > .item-media {
+  .item-media {
     position: relative;
     width: 160px;
     height: 220px;
@@ -51,12 +52,14 @@ const ItemWrapper = styled.div`
 const CollectionItem = props => {
   return (
     <ItemWrapper image={props.designer} id={props.id}>
-      <div className="item-media">
-        <button className="fav-button">
-          <FontAwesomeIcon icon={faHeart} />
-        </button>
-        <p>New</p>
-      </div>
+      <NavLink exact to="/" style={{ textDecoration: "none" }}>
+        <div className="item-media">
+          <button className="fav-button">
+            <FontAwesomeIcon icon={faHeart} />
+          </button>
+          <p>New</p>
+        </div>
+      </NavLink>
       <div className="item-details">
         <p className="item-title">Item Title</p>
         <p className="item-price">$99,99</p>

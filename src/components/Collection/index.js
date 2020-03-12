@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import CollectionItem from "../CollectionItem";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 const CollectionWrapper = styled.section`
   margin-top: 2.5rem;
   .top-bar {
@@ -23,40 +27,67 @@ const CollectionWrapper = styled.section`
   }
 
   .items-container {
-    position: relative;
-    padding-left: 0.5rem;
-    overflow-x: hidden;
-    display: flex;
-    transition: 0.7s;
-    /** left property causes overflow aka horizontal scrolling; hiding the scrollbar works on safari and chrome but not firefox and not sure about edge */
-    /** TODO FIND AWAY TO CHANGE LEFT PROPERTY WITHOUT OVERFLOW */
   }
 `;
 const Collection = props => {
-  const [slide, setSlide] = useState(0);
-  const _handleLeftSwipe = () => {
-    if (slide < 0) {
-      setSlide(slide * 10);
+  const [numberOfSlides, setNumberofSlides] = useState(3);
+
+  window.addEventListener("load", () => {
+    if (window.innerWidth > 1500) {
+      setNumberofSlides(8);
+    } else if (window.innerWidth > 1300) {
+      setNumberofSlides(6);
+    } else if (window.innerWidth > 1024) {
+      setNumberofSlides(4);
+    } else if (window.innerWidth > 500) {
+      setNumberofSlides(3);
     } else {
-      setSlide(-slide * 10);
+      setNumberofSlides(2);
     }
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1500) {
+      setNumberofSlides(8);
+    } else if (window.innerWidth > 1300) {
+      setNumberofSlides(6);
+    } else if (window.innerWidth > 1024) {
+      setNumberofSlides(4);
+    } else if (window.innerWidth > 500) {
+      setNumberofSlides(3);
+    } else {
+      setNumberofSlides(2);
+    }
+  });
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: numberOfSlides,
+    slidesToScroll: 2
   };
   return (
-    <CollectionWrapper slide={slide}>
+    <CollectionWrapper>
       <div className="top-bar">
         <p>DESIGNER'S COLLECTION</p>
         <a href="#deadsies">SHOW ALL</a>
       </div>
-      <div className="items-container">
-        <CollectionItem designer={props.designer} id={0} />
-        <CollectionItem designer={props.designer} id={1} />
-        <CollectionItem designer={props.designer} id={2} />
-        <CollectionItem designer={props.designer} id={3} />
-        <CollectionItem designer={props.designer} id={4} />
-        <CollectionItem designer={props.designer} id={5} />
-      </div>
-      <button onClick={_handleLeftSwipe}>swipe left</button>
-      <button>swipe right</button>
+      {/* <div className="items-container"></div> */}
+      <Slider style={{ overflow: "hidden" }} {...settings}>
+        <CollectionItem designer={props.designer[0]} />
+        <CollectionItem designer={props.designer[1]} />
+        <CollectionItem designer={props.designer[2]} />
+        <CollectionItem designer={props.designer[3]} />
+        <CollectionItem designer={props.designer[0]} />
+        <CollectionItem designer={props.designer[1]} />
+        <CollectionItem designer={props.designer[2]} />
+        <CollectionItem designer={props.designer[3]} />
+        <CollectionItem designer={props.designer[0]} />
+        <CollectionItem designer={props.designer[1]} />
+        <CollectionItem designer={props.designer[2]} />
+        <CollectionItem designer={props.designer[3]} />
+      </Slider>
+      {/* <button onClick={_handleLeftSwipe}>swipe left</button> */}
+      {/* <button>swipe right</button> */}
     </CollectionWrapper>
   );
 };

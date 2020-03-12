@@ -59,11 +59,11 @@ const Collection = props => {
     }
   });
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: numberOfSlides,
-    slidesToScroll: 2
+    slidesToScroll: 1
   };
   return (
     <CollectionWrapper>

@@ -104,6 +104,7 @@ const Header = () => {
   });
   return (
     <HeaderWrapper style={animateWrapper}>
+      <Navbar />
       <LeftHeader style={animateLeft}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

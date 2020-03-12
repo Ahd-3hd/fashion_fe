@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated, config } from "react-spring";
 const NavbarWrapper = styled.nav`
   position: fixed;
   right: 0;
@@ -53,7 +53,8 @@ const Navbar = () => {
   const [overlay, setOverlay] = useState(false);
 
   const slideOverlay = useSpring({
-    transform: overlay ? "translateX(0)" : "translateX(-100%)"
+    transform: overlay ? "translateX(0)" : "translateX(-100%)",
+    config: config.default
   });
   return (
     <NavbarWrapper>

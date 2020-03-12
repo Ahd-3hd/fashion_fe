@@ -15,6 +15,7 @@ const ItemWrapper = styled.div`
     height: 220px;
     background: url(${props => props.image}) no-repeat;
     background-size: cover;
+    background-position:center center;
     border-radius: 0.5rem;
     .fav-button {
       background: rgba(255, 255, 255, 0.6);

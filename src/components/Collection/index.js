@@ -5,6 +5,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
+// TODO
+// Turn collection items to navlinks and pass links refs to each item to be used in the back end requests.
+
 const CollectionWrapper = styled.section`
   margin-top: 2.5rem;
   .top-bar {

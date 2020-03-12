@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Collection from "./components/Collection";
+import Explore from "./components/Explore";
 import itemImage0 from "./img/abaya12.jpg";
 import itemImage1 from "./img/abaya3.jpg";
 import itemImage2 from "./img/abaya5.jpg";
@@ -18,7 +19,7 @@ function App() {
         title={"TOP TRENDING"}
         designer={[itemImage1, itemImage0, itemImage3, itemImage2]}
       />
-      <div style={{ height: "200vh" }}></div>
+      <Explore />
     </div>
   );
 }

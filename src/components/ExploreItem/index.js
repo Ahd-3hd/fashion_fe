@@ -1,5 +1,5 @@
 import React from "react";
-import { useSpring, animated } from "react-spring";
+import { animated } from "react-spring";
 import styled from "styled-components";
 
 const ExploreItemWrapper = styled(animated.main)`

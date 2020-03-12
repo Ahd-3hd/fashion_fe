@@ -16,7 +16,7 @@ function App() {
       />
       <Collection
         title={"TOP TRENDING"}
-        designer={[itemImage0, itemImage1, itemImage2, itemImage3]}
+        designer={[itemImage1, itemImage0, itemImage3, itemImage2]}
       />
       <div style={{ height: "200vh" }}></div>
     </div>

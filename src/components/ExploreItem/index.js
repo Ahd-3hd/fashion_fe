@@ -14,6 +14,7 @@ const ExploreItemWrapper = styled(animated.main)`
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  transition: 0.4s;
   &::after {
     content: "";
     position: absolute;
@@ -23,8 +24,13 @@ const ExploreItemWrapper = styled(animated.main)`
     right: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, #523448 0%, rgba(82, 52, 72, 0) 71.87%);
+    background: linear-gradient(
+      180deg,
+      #523448 -1%,
+      rgba(82, 52, 72, 0) 71.87%
+    );
     transform: rotateX(180deg);
+    border-radius: 0.3rem;
   }
   .item-text {
     z-index: 5;

@@ -10,7 +10,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Collection designer={[itemImage0, itemImage1, itemImage2, itemImage3]} />
+      <Collection
+        title={"DESIGNER'S COLLECTION"}
+        designer={[itemImage0, itemImage1, itemImage2, itemImage3]}
+      />
+      <Collection
+        title={"TOP TRENDING"}
+        designer={[itemImage0, itemImage1, itemImage2, itemImage3]}
+      />
       <div style={{ height: "200vh" }}></div>
     </div>
   );
